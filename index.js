@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
 
 app.get("/box/:game/:type/:type2/:boximg", (req, res) => {
   const params = req.params
-  res.sendFile(`./boxes/${params.game}/${params.type}/${params.type2}/${params.boximg}/`, {
+  res.sendFile(`./boxes/${params.game}/${params.type}/${params.type2}/${params.boximg}`, {
     root: "/app",
     //dotfiles: 'deny',
     headers: {
