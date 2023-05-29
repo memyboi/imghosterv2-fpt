@@ -1,20 +1,14 @@
 const http = require('http');
-const express = require("express")
 const path = require("path")
 const fs = require("fs")
-const PORT = 3000;
-
+const express = require('express')
 const app = express()
+const port = 1697
 
-// const server = http.createServer((req, res) => {
-//   res.statusCode = 200;
-//   res.setHeader('Content-Type', 'text/plain');
-//   res.end('Hello World!');
-// });
-
-app.get("/", function(req, res) {
-  console.log("something connected !!1!1!!")
-  res.send("hi !11!")
+app.get('/', (req, res) => {
+  res.send('Hello World!')
 })
 
-app.listen(PORT)
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
