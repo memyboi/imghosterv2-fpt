@@ -12,7 +12,7 @@ const app = express()
 //   res.end('Hello World!');
 // });
 
-app.get("/", (req, res) => {
+app.get("/", function(req, res) {
   console.log("something connected !!1!1!!")
   res.send("hi !11!")
 })
