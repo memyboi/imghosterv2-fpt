@@ -29,7 +29,9 @@ app.get("/box/:game/:type/:type2/:boximg", (req, res) => {
 
 app.get("/icon/:game/:sprites/:spritetype/:shinyness/:icon", (req, res) => {
   const params = req.params
-  res.sendFile(`./icons/${params.game}/${params.sprites}/${params.spritetype}/${params.shinyness}/${params.icon}`, {
+  let actGame = params.game
+  if (params.game == "gen3") actGame = "pbrs"
+  res.sendFile(`./icons/${actGame}/${params.sprites}/${params.spritetype}/${params.shinyness}/${params.icon}`, {
     root: "/app",
     //dotfiles: 'deny',
     headers: {
@@ -40,7 +42,7 @@ app.get("/icon/:game/:sprites/:spritetype/:shinyness/:icon", (req, res) => {
     if (err) {
       console.log(err)
     } else {
-      console.log(`item was sent. details: game ${params.game} sprites ${params.sprites} stype ${params.spritetype} shiny ${params.shinyness} icon ${params.icon}`)
+      console.log(`item was sent. details: game ${actGame} sprites ${params.sprites} stype ${params.spritetype} shiny ${params.shinyness} icon ${params.icon}`)
     }
   })
 })
