@@ -22,7 +22,7 @@ app.get("/box/:game/:type/:type2/:boximg", (req, res) => {
     if (err) {
       console.log(err)
     } else {
-      console.log("lets go it got sent !!1!111!")
+      console.log(`item was sent. details: game ${params.game} type ${params.type} type2 ${params.type2} imgname ${params.boximg}`)
     }
   })
 })
@@ -40,11 +40,11 @@ app.get("/icon/:game/:sprites/:spritetype/:shinyness/:icon", (req, res) => {
     if (err) {
       console.log(err)
     } else {
-      console.log("lets go it got sent !!1!111!")
+      console.log(`item was sent. details: game ${params.game} sprites ${params.sprites} stype ${params.spritetype} shiny ${params.shinyness} icon ${params.icon}`)
     }
   })
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`Operating on port ${port}`)
 })
