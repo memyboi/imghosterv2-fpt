@@ -47,6 +47,24 @@ app.get("/icon/:game/:sprites/:spritetype/:shinyness/:icon", (req, res) => {
   })
 })
 
+app.get("/game/:gameicon/", (req, res) => {
+  const params = req.params
+  res.sendFile(`./games/${params.gameicon}`, {
+    root: "/app",
+    //dotfiles: 'deny',
+    headers: {
+      'x-timestamp': Date.now(),
+      'x-sent': true
+    }
+  } ,function (err) {
+    if (err) {
+      console.log(err)
+    } else {
+      console.log(`item was sent. details: gameicon ${params.gameicon}`)
+    }
+  })
+})
+
 app.listen(port, () => {
   console.log(`Operating on port ${port}`)
 })
